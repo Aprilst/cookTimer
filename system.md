@@ -18,23 +18,27 @@
 
 ​			显示时间，电量；
 
-旋钮？设置定时开始时间；
+​			进入IDLE状态；无操作情况计时，到时间自动关机
 
-confirm
+2. 旋钮？设置定时开始时间  - > confirm （0 只负责关闭动作）
 
-设置定时结束时间；
+​					设置定时进行时长 - > confirm
 
-confirm
+​						| 系统进入 WORKING状态，自动关机停止  
 
-倒计时开始 -> 
+​						| 初始化 device off/On  光敏value 
 
-​	time is up -> 开启工具（舵机）
+​						| 如果只负责关闭的模式下，检测当前device是否是打开状态； （状态异常需要给出提醒）
 
-​	检测是否开启 -> send msg | Succeed or Failed
+​						| 如果是先开后关的模式，检测目前是否已经关闭；（状态异常需要给出提醒）
 
-倒计时1开始 ->
+3. 倒计时 开始 
 
-​	time is up1 - > 调小挡位？/ 关闭？ 
+​			time0  is up -> 开启Device（舵机） |  检测是否开启 -> send msg | Succeed or Failed
+
+​		倒计时1 开始 ->
+
+​			time1 is up - > 调小挡位？/ 关闭？ 
 
 ​	检测对应操作是否成功 -> send msg 
 
